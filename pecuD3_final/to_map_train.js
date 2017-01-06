@@ -51,28 +51,66 @@ function to_map_train(class_name){
 
     // Draw Train Stop 
 
-    var new_stop_data=[];
+    var s_stop_data=[];
+    var m_stop_dara=[];
+    var l_stop_data=[];
+    l_i = 0;
+    m_i = 0;
+    s_i = 0;
     for(i=0;i<stop_data.length;i++){
-      new_stop_data[i]=[projection([stop_data[i].long,stop_data[i].lat]),stop_data[i].yearFlow];
+      if(i<40){
+        l_stop_data[l_i]=[projection([stop_data[i].long,stop_data[i].lat]),stop_data[i].yearFlow];
+        l_i = l_i + 1;
+      } esle if(i<80){
+        m_stop_data[m_i]=[projection([stop_data[i].long,stop_data[i].lat]),stop_data[i].yearFlow];
+        m_i = m_i + 1;
+      } else{
+        s_stop_data[s_i]=[projection([stop_data[i].long,stop_data[i].lat]),stop_data[i].yearFlow];
+        s_i = s_i + 1;
+      }
     };
     
-    console.log(new_stop_data);
 
     var radius = d3.scale.sqrt()
       .domain([0, 5e7])
       .range([0, 25]);
 
 
-
     svg.selectAll("circle")
-      .data(new_stop_data).enter()
+      .data(s_stop_data).enter()
       .append("circle")
       .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
       .attr("cy", function (d) { return d[0][1]; })
       .attr("fill", "black")
       .transition()
       .duration(function (d) { return radius(d[1]); })
-        .attr('r', function (d) { return radius(d[1])*100000; })
+        .attr('r', 30000)
+        .attr('fill-opacity', 0.8);  
+
+
+
+    svg.selectAll("circle")
+      .data(m_stop_data).enter()
+      .append("circle")
+      .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
+      .attr("cy", function (d) { return d[0][1]; })
+      .attr("fill", "blue")
+      .transition()
+      .duration(function (d) { return radius(d[1]); })
+        .attr('r', 100000)
+        .attr('fill-opacity', 0.8);
+
+
+
+    svg.selectAll("circle")
+      .data(l_stop_data).enter()
+      .append("circle")
+      .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
+      .attr("cy", function (d) { return d[0][1]; })
+      .attr("fill", "red")
+      .transition()
+      .duration(function (d) { return radius(d[1]); })
+        .attr('r', 200000)
         .attr('fill-opacity', 0.8);
 
 
