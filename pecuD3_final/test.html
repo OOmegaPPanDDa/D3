@@ -67,7 +67,7 @@
       console.log(new_stop_data);
 
       svg.selectAll("circle")
-    .data(stop_data).enter()
+    .data(new_stop_data).enter()
     .append("circle")
     .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
     .attr("cy", function (d) { return projection(d)[1]; })
@@ -75,6 +75,14 @@
     .attr("fill", "red")
 
     });
+
+
+
+    circle
+    .transition()
+    .duration(2000)
+        .attr('fill-opacity', 0.2)
+        .attr('r', function(item) { return 100 * item; });
 
 
 
