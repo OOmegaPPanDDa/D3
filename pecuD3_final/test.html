@@ -37,7 +37,7 @@
     }
 
 
-    var color = d3.scale.linear().domain([0,10000]).range(["#000","fff"]);
+    var color = d3.scale.linear().domain([0,10000]).range(["#000","#fff"]);
     d3.select("svg").selectAll("path").data(features).attr({
     d: path,
     fill: function(d) {
