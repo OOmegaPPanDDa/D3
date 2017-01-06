@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Word Cloud</title>
+
+    
+    <script src="d3.js"></script>
+    <script src="d3.layout.cloud.js"></script>
+    <script src="d3.wordcloud.js"></script>
+    
+
+    <!--
+    <script src="https://oomegappandda.github.io/d3-wordcloud/lib/d3/d3.js"></script>
+    <script src="https://oomegappandda.github.io/d3-wordcloud/lib/d3/d3.layout.cloud.js"></script>
+    <script src="https://oomegappandda.github.io/d3-wordcloud/d3.wordcloud.js"></script>
+	-->
+
+
+  </head>
+  <body style="text-align: center">
+    <h1>Word Cloud</h1>
+    <div id='wordcloud'></div>
+    <script>
+    d3.csv("./wordCloud.csv", 
+      function(data)
+      {
+        d3.wordcloud()
+          .size([500, 300])
+          .fill(d3.scale.ordinal().range(["#884400", "#448800", "#888800", "#444400"]))
+          .words(data)
+          .start();
+      });
+    </script>
+
+    <div class='tableauPlaceholder' id='viz1480433046607' style='position: relative'><noscript><a href='#'><img alt='Sheet 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;CQ&#47;CQK3S4DYZ&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='path' value='shared&#47;CQK3S4DYZ' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;CQ&#47;CQK3S4DYZ&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object>
+    </div> 
+             
+    <script type='text/javascript'>                    var divElement = document.getElementById('viz1480433046607');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+    </script>
+
+
+
+
+    <div>
+    <a href="https://plot.ly/~RyanChen281e/3/" target="_blank" title="" style="display: block; text-align: center;"><img src="https://plot.ly/~RyanChen281e/3.png" alt="" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="RyanChen281e:3"  src="https://plot.ly/embed.js" async></script>
+    </div>
+
+  </body>
+</html>

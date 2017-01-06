@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<title>svg_javascript_test</title>
+	</head>
+	<body>
+	<script>
+	var cdata = [
+	{cx:30, cy:150, r:20, color:'#8600FF'},
+	{cx:60, cy:160, r:25, color:'#921AFF'},
+	{cx:90, cy:170, r:30, color:'#9F35FF'},
+	{cx:120, cy:180, r:35, color:'#B15BFF'},
+	{cx:150, cy:190, r:40, color:'#BE77FF'},
+	{cx:180, cy:200, r:45, color:'#CA8EFF'},
+	{cx:210, cy:210, r:50, color:'#D3A4FF'},
+	{cx:240, cy:220, r:55, color:'#DCB5FF'},
+	{cx:270, cy:230, r:60, color:'#E6CAFF'},
+	{cx:300, cy:240, r:65, color:'#F1E1FF'},
+	{cx:330, cy:250, r:70, color:'#FAF4FF'},
+	];
+
+	var pgdata = [
+	{points: "750,150 740,165 760,165", style: "fill:orange;stroke:red;stroke-width:1"},
+	{points: "850,250 840,265 860,265", style: "fill:orange;stroke:red;stroke-width:1"},
+
+	];
+
+
+	var svg = d3.select('body').append('svg').attr('width', 1000).attr('height', 1000)
+	var maddc = svg.append('circle').attr('cx',120).attr('cy',80).attr('r',50).attr('fill', 'yellow')
+	var addDataToC = svg.selectAll('circle').data(cdata).enter().append('circle')
+	var addC = addDataToC.attr('cx', function(d){return d.cx;}).attr('cy', function(d){return d.cy;}).attr('r', function(d){return d.r;}).attr('fill', function(d){return d.color;})
+
+
+	var addDataToPG = svg.selectAll('polygon').data(pgdata).enter().append('polygon')
+	var addPG = addDataToPG.attr('points', function(d){return d.points;}).attr('style', function(d){return d.style;})
+
+
+
+	</script>
+	
+	</body>
+ </html>

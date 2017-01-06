@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang=lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <title>Group 5 Demo Slide</title>
+  <link rel="stylesheet" href="reveal.js-master/css/reveal.css">
+  <link rel="stylesheet" href="reveal.js-master/css/theme/league.css" id="theme">  
+  
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="reveal.js-master/lib/css/zenburn.css">
+  
+  <!--Add support for earlier versions of Internet Explorer -->
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <!-- 使用 reveal 與 slides 的 div 將整個簡報包起來 -->
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 簡報內容開始 -->
+
+      <!-- 一個 section 表示一頁簡報 -->
+      <section>
+        <h1>Group 5</h1>
+      </section>
+
+      <section>
+        <h1>鐵路環島小幫手</h1>
+        <h3>不想人擠人?<br>需要免費 Wifi?<br>想吃好料?<br>鐵路環島的好朋友<br></h3>
+        <p>
+          <small>Created by 第五組</small>
+        </p>
+      </section>
+
+      <section>
+        <h2>第五組：小組成員</h2>
+        <p>來自一群對台灣島有熱忱的90年代</p>
+      </section>
+      <section>
+        <h2>About Us</h2>
+      </section>
+
+      <section>
+      <section>
+          <h2>廖維君</h2>
+          <p>資管系</p>
+          <a href="#" class="navigate-down">
+            <img width="50%" height=width*2 data-src="廖維君.jpg" alt="Down arrow">
+          </a>
+      </section>
+      <section>
+          <h2>陳信豪</h2>
+          <p>資管系</p>
+          <a href="#" class="navigate-down">
+            <img width="50%" height="50%" data-src="陳信豪.jpg" alt="Down arrow">
+          </a>
+      </section>
+      <section>
+          <h2>黃冠豪</h2>
+          <p>ＯＯ系</p>
+          <a href="#" class="navigate-down">
+            <img width="50%" height="50%" data-src="黃冠豪.jpg" alt="Down arrow">
+          </a>
+      </section>
+      <section>
+          <h2>許述文</h2>
+          <p>ＯＯ系</p>
+          <a href="#" class="navigate-down">
+            <img width="50%" height="50%" data-src="許述文.jpg" alt="Down arrow">
+          </a>
+      </section>
+      <section>
+          <h2>陳昶昇</h2>
+          <p>ＯＯ系</p>
+          <a href="#" class="navigate-down">
+            <img width="50%" height="50%" data-src="陳昶昇.jpg" alt="Down arrow">
+          </a>
+      </section>
+      <section>
+          <h2>姜以安</h2>
+          <p>ＯＯ系</p>
+          <a href="#" class="navigate-down">
+            <img width="50%" height="50%" data-src="姜以安.jpg" alt="Down arrow">
+          </a>
+      </section>
+      </section>
+
+      </div>
+  </div>
+  <script src="reveal.js-master/lib/js/head.min.js"></script>
+  <script src="reveal.js-master/js/reveal.js"></script>
+
+  <script>
+    // 啟用 reveal.js
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // 加入一些 reveal.js 的外掛
+      dependencies: [
+        { src: 'reveal.js-master/plugin/highlight/highlight.js',
+          async: true, condition: function() {
+            return !!document.querySelector( 'pre code' );
+          }, callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        }
+      ]
+    });
+  </script>
+</body>
+</html>
