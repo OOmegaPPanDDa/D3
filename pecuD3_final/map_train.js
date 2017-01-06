@@ -1,7 +1,7 @@
 function to_map_train(){  
 
-  var width = 1600;
-  var height = 900;
+  var w = 1600;
+  var h = 900;
   var margin = {top:20};
 
 
@@ -11,14 +11,14 @@ function to_map_train(){
     var projection = d3.geo.mercator()
       .scale(9000) // 地圖放大比率
       .center([120.9, 24.1]) // 指定地圖的中心點(longitude(經), latitude(緯))
-      .translate([width / 2, height / 2]); // 從中心點移動指定的px(x, y)
+      .translate([w / 2, h / 2]); // 從中心點移動指定的px(x, y)
 
     // 利用 d3.geo.path 將資料轉換成 SVG Path
     var path = d3.geo.path().projection(projection);
 
     var svg = d3.select(".b02705027_map_train").append("svg")
-              .attr("width", width)
-              .attr("height", height);
+              .attr("width", w)
+              .attr("height", h);
 
 
 
@@ -59,7 +59,7 @@ function to_map_train(){
 
     for(i=0;i<stop_data.length;i++){
 
-      stop_data[i]=[projection([stop_data[i].long,stop_data[i].lat]),stop_data[i].yearFlow];
+      stop_data[i]=[projection([stop_data[i].long,stop_data[i].lat]),stop_data[i].yearFlow,stop_data[i].stop_name];
 
 
       // if(i<40){
@@ -168,13 +168,25 @@ function to_map_train(){
 
 
     svg.append("text")
-    .attr("x", width / 2 )
+    .attr("x", w / 2 )
     .attr("y", margin.top)
     .style("text-anchor", "middle")
     .text("Taiwan Train Stop YearFlow Map");
 
 
   });
+
+
+
+  $('svg circle').tipsy({ 
+        gravity: 'w', 
+        html: true, 
+        title: function() {
+          var d = this.__data__, c = colors(d.i);
+          return 'Hi there! My color is <span style="color:' + c + '">' + c + '</span>'+
+          '\n Here is '+ d[2] + '.'; 
+        }
+      });
 
 
 }
