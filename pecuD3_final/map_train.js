@@ -1,5 +1,3 @@
-import * as lib from 'tipsy';
-
 function to_map_train(){  
 
   var w = 1600;
@@ -176,11 +174,7 @@ function to_map_train(){
     .text("Taiwan Train Stop YearFlow Map");
 
 
-  });
-
-
-
-  $('svg circle').tipsy({ 
+    $('svg circle').tipsy({ 
         gravity: 'w', 
         html: true, 
         title: function() {
@@ -189,6 +183,9 @@ function to_map_train(){
           '\n Here is '+ d[2] + '.'; 
         }
       });
+
+
+  });
 
 
 }
