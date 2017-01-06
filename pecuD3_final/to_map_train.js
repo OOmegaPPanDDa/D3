@@ -49,7 +49,7 @@ function to_map_train(){
     // Draw Train Stop 
 
     var s_stop_data=[];
-    var m_stop_dara=[];
+    var m_stop_data=[];
     var l_stop_data=[];
     l_i = 0;
     m_i = 0;
