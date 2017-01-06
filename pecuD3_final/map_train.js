@@ -54,14 +54,17 @@ function to_map_train(){
     l_i = 0;
     m_i = 0;
     s_i = 0;
+
     for(i=0;i<stop_data.length;i++){
       if(i<40){
         l_stop_data[l_i]=[projection([stop_data[i].long,stop_data[i].lat]),stop_data[i].yearFlow];
         l_i = l_i + 1;
-      } esle if(i<80){
+      }
+      if (i>=40 && i<80){
         m_stop_data[m_i]=[projection([stop_data[i].long,stop_data[i].lat]),stop_data[i].yearFlow];
         m_i = m_i + 1;
-      } else{
+      } 
+      if (i>=80){
         s_stop_data[s_i]=[projection([stop_data[i].long,stop_data[i].lat]),stop_data[i].yearFlow];
         s_i = s_i + 1;
       }
