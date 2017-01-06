@@ -48,13 +48,17 @@
       });
 
 
-    var stop_data;
-    d3.csv('stop.csv',function(data){
-      stop_data = data;
-      console.log(stop_data);
-      const df = new DataFrame(stop_data, columns)
-    });
 
+    // es6 
+    // import { DataFrame, Row } from 'dataframe-js';
+    // es5 
+    // var DataFrame = require('dataframe-js').DataFrame;
+    // Browser 
+    var DataFrame = dfjs.DataFrame;
+
+
+    DataFrame.fromCSV('stop.csv').then(df => df);
+    df.show()
     
 
 
