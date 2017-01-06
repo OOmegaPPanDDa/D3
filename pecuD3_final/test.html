@@ -21,8 +21,8 @@
   // 利用 d3.geo.path 將資料轉換成 SVG Path
   var path = d3.geo.path().projection(projection);
 
-	d3.json("county.json", function(data) {
-		console.log(data);
+	d3.json("county.json", function(topodata) {
+		console.log(topodata);
 
       var features = topojson.feature(topodata, topodata.objects["county"]).features;
       // 這裡要注意的是 topodata.objects["county"] 中的 "county" 為原本 shp 的檔名
