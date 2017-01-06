@@ -84,7 +84,7 @@ function to_map_train(){
 
 
     svg.selectAll("circle")
-      .data(s_stop_data).enter()
+      .data(stop_data).enter()
       .append("circle")
       .each(function (d, i) {
             if (i <= 140) {
