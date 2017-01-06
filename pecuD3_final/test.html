@@ -6,7 +6,7 @@
   <script src="https://d3js.org/d3.v4.min.js" type="text/javascript"></script>
   <script src= "https://d3js.org/topojson.v2.min.js" type="text/javascript"></script>
   <script src="https://OOmegaPPanDDa.github.io/D3/pecuD3_final/county.js" type="text/javascript"></script>
-  <script src="https://OOmegaPPanDDa.github.io/D3/pecuD3_final/map_train.js" type="text/javascript"></script>
+  <script src="https://OOmegaPPanDDa.github.io/D3/pecuD3_final/to_map_train.js" type="text/javascript"></script>
   
 </head>
 <body>
@@ -23,109 +23,3 @@
 
 </body>
 </html>
-
-
-
-
-<!-- <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Test</title>
-  <script src="https://d3js.org/d3.v3.min.js"></script>
-  <script src="https://d3js.org/d3.v4.min.js"></script>
-  <script src="https://d3js.org/topojson.v2.min.js"></script>
-  <script src="county.js" type="text/javascript" ></script>
-  <script src="https://cdn.rawgit.com/Gmousse/dataframe-js/master/lib/browser/dataframe-min.js"></script>
-</head>
-<body>
-
-
-
-
-<script>
-  var width = 1600, height = 900;
-  var margin = {top: 60, right: 60, bottom: 60, left:120}
-
-  d3.csv('https://raw.githubusercontent.com/OOmegaPPanDDa/D3/pecuD3_final/master/2014_train_year_flow.csv',function(stop_data){
-
-
-    var projection = d3.geo.mercator()
-      .scale(8000) // 地圖放大比率
-      .center([120.9, 24.1]) // 指定地圖的中心點(longitude(經), latitude(緯))
-      .translate([width / 2, height / 2]); // 從中心點移動指定的px(x, y)
-
-    // 利用 d3.geo.path 將資料轉換成 SVG Path
-    var path = d3.geo.path().projection(projection);
-
-    var svg = d3.select("body").append("svg")
-              .attr("width", width)
-              .attr("height", height);
-
-
-
-    // Draw TW
-
-    // console.log(topodata);
-
-    var features = topojson.feature(topodata, topodata.objects["county"]).features;
-
-    svg.selectAll("path").data(features).enter()
-    .append("path").attr("d",path);
-
-    for(i=features.length - 1; i >= 0; i-- ) {
-      features[i].properties.color_assign = (Math.random() * 100);
-      // console.log(features[i].properties.color_assign);
-    };
-
-
-    var color = d3.scale.category20c();
-    svg.selectAll("path").data(features)
-      .attr('d', path)
-      .style('fill',function(d){
-        return color(d.properties.color_assign)
-      });
-
-
-
-    // Draw Train Stop 
-
-    var new_stop_data=[];
-    for(i=0;i<stop_data.length;i++){
-      new_stop_data[i]=[projection([stop_data[i].long,stop_data[i].lat]),stop_data[i].yearFlow];
-    };
-    
-    // console.log(new_stop_data);
-
-    var radius = d3.scale.sqrt()
-      .domain([0, 5e7])
-      .range([0, 25]);
-
-
-
-    svg.selectAll("circle")
-      .data(new_stop_data).enter()
-      .append("circle")
-      .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
-      .attr("cy", function (d) { return d[0][1]; })
-      .attr("fill", "black")
-      .transition()
-      .duration(2500)
-        .attr('r', function (d) { return radius(d[1]); })
-        .attr('fill-opacity', 0.8);
-
-    svg.append("text")
-    .attr("x", width / 2 )
-    .attr("y", margin.top)
-    .style("text-anchor", "middle")
-    .text("台灣火車站人數流量圖");
-
-
-  });
-  	
-
-</script>
-
-</body>
-</html>
-
- -->
