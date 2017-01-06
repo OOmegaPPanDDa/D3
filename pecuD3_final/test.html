@@ -17,7 +17,9 @@
 <script>
 
 
-  var projection = d3.geo.mercator()
+    d3.csv('stop.csv',function(stop_data){
+
+        var projection = d3.geo.mercator()
             .scale(8000) // 地圖放大比率
             .center([120.9, 24.1]); // 指定地圖的中心點(longitude(經), latitude(緯))
            // .translate([width / 2, height / 2]); // 從中心點移動指定的px(x, y)
@@ -25,8 +27,8 @@
   // 利用 d3.geo.path 將資料轉換成 SVG Path
   var path = d3.geo.path().projection(projection);
 
-	//d3.json("county.json", function(topodata) {
-		console.log(topodata);
+  //d3.json("county.json", function(topodata) {
+    console.log(topodata);
 
     var features = topojson.feature(topodata, topodata.objects["county"]).features;
 
@@ -37,7 +39,7 @@
     
       features[i].properties.color_assign = (Math.random() * 100);
       console.log(features[i].properties.color_assign);
-    }
+    };
 
 
     var color = d3.scale.category20();
@@ -48,15 +50,32 @@
       });
 
 
-    var new_stop_data;
-    d3.csv('stop.csv',function(stop_data){
+
+
+
       console.log(stop_data);
       for(i=0;i<stop_data.length;i++){
-        new_stop_data.append([stop_data[i].long,stop_data[i].lat]);
+        new_stop_data[i]=[stop_data[i].long,stop_data[i].lat];
       };
       console.log(new_stop_data);
 
+      svg.selectAll("circle")
+    .data(new).enter()
+    .append("circle")
+    .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
+    .attr("cy", function (d) { return projection(d)[1]; })
+    .attr("r", "8px")
+    .attr("fill", "red")
+
     });
+
+
+
+
+  
+
+
+    
 
 
     
