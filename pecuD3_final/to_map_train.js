@@ -19,7 +19,7 @@ function to_map_train(){
     // 利用 d3.geo.path 將資料轉換成 SVG Path
     var path = d3.geo.path().projection(projection);
 
-    var svg = d3.select("#b02705027_map_train").append("svg")
+    var svg = d3.select(".b02705027_map_train").append("svg")
               .attr("width", width)
               .attr("height", height);
 
