@@ -84,7 +84,7 @@ function to_map_train(){
       .attr("fill", "black")
       .transition()
       .duration(100000)
-        .attr('r', function (d) { return scale(d[1])} )
+        .attr('r', function (d) { return radius(d[1])} )
         .attr('fill-opacity', 0.8);  
 
 
@@ -97,7 +97,7 @@ function to_map_train(){
       .attr("fill", "blue")
       .transition()
       .duration(200000)
-        .attr('r', function (d) { return scale(d[1])} )
+        .attr('r', function (d) { return radius(d[1])} )
         .attr('fill-opacity', 0.8);
 
 
@@ -110,7 +110,7 @@ function to_map_train(){
       .attr("fill", "red")
       .transition()
       .duration(3000000)
-        .attr('r', function (d) { return scale(d[1])} )
+        .attr('r', function (d) { return radius(d[1])} )
         .attr('fill-opacity', 0.8);
 
 
