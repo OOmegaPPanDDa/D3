@@ -83,8 +83,8 @@ function to_map_train(class_name){
       .attr("cy", function (d) { return d[0][1]; })
       .attr("fill", "black")
       .transition()
-      .duration(function (d) { return radius(d[1]); })
-        .attr('r', 30000)
+      .duration(300000)
+        .attr('r', function (d) { return scale(d[1])} )
         .attr('fill-opacity', 0.8);  
 
 
@@ -96,8 +96,8 @@ function to_map_train(class_name){
       .attr("cy", function (d) { return d[0][1]; })
       .attr("fill", "blue")
       .transition()
-      .duration(function (d) { return radius(d[1]); })
-        .attr('r', 100000)
+      .duration(200000)
+        .attr('r', function (d) { return scale(d[1])} )
         .attr('fill-opacity', 0.8);
 
 
@@ -109,8 +109,8 @@ function to_map_train(class_name){
       .attr("cy", function (d) { return d[0][1]; })
       .attr("fill", "red")
       .transition()
-      .duration(function (d) { return radius(d[1]); })
-        .attr('r', 200000)
+      .duration(100000)
+        .attr('r', function (d) { return scale(d[1])} )
         .attr('fill-opacity', 0.8);
 
 
