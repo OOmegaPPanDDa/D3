@@ -37,18 +37,24 @@
       console.log(features[i].properties.color_assign);
     }
 
-
+    var stop_data
+    d3.csv("stop.csv", function(data) {
+      stop_data = data;
+    });
 
     var color = d3.scale.linear().domain([0,100]).range(['#00FFFF', '#00A600']);
-    d3.select("svg").selectAll("path").data(features).attr('d', path)
+    var = d3.select("svg").selectAll("path").data(features).attr('d', path)
     .style('fill',
       function(d){
         return color(d.properties.color_assign)
       });
 
-    d3.csv("stop.csv", function(data) {
-      console.log(data);
-    });
+
+    svg.selectAll("circle")
+    .data(stop_data).enter()
+    .append("circle")
+
+    
 //});
 
 
