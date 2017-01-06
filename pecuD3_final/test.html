@@ -6,6 +6,9 @@
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://d3js.org/topojson.v2.min.js"></script>
   <script src="county.js" type="text/javascript" ></script>
+  <script src="https://cdn.rawgit.com/Gmousse/dataframe-js/master/lib/browser/dataframe-min.js"></script>
+      
+
 </head>
 <body>
 <svg width="1000px" height="800px" viewBox="0 0 800 600"></svg>
@@ -49,9 +52,8 @@
     d3.csv('stop.csv',function(data){
       stop_data = data;
       console.log(stop_data);
+      const df = new DataFrame(stop_data, columns)
     });
-
-    console.log(stop_data);
 
     
 
