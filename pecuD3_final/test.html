@@ -32,13 +32,13 @@
 
     counter = 0;
     for(i=features.length - 1; i >= 0; i-- ) {
-      counter = counter + 1
+      counter = counter + 1000
     
       features[i].properties.color_assign = counter;
     }
 
 
-    var color = d3.scale.linear().domain([0,features.length]).range(["#090","#f00"]);
+    var color = d3.scale.linear().domain([0,10000]).range(["#090","#f00"]);
     d3.select("svg").selectAll("path").data(features).attr({
     d: path,
     fill: function(d) {
