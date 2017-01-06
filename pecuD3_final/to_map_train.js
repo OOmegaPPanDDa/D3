@@ -1,7 +1,7 @@
 function to_map_train(){  
 
-  var width = 90%;
-  var height = 50%;
+  var width = 80;
+  var height = 50;
   var margin = {top:5%};
 
 
