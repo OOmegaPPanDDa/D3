@@ -184,8 +184,7 @@ function to_map_train(){
         html: true, 
         title: function() {
           var d = this.__data__, c = circle_colors(d[1]);
-          return 'Hi there! My color is <span style="color:' + c + '">' + c + '</span>'+
-          '\n Here is '+ d[2] + '.'; 
+          return 'Hi there!'; 
         }
       });
 
