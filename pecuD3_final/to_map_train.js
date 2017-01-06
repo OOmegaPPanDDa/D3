@@ -2,7 +2,7 @@ function to_map_train(){
 
   var width = 80;
   var height = 50;
-  var margin = {top:5%};
+  var margin = {top:5};
 
 
   d3.csv('https://raw.githubusercontent.com/OOmegaPPanDDa/D3/master/pecuD3_final/2014_train_year_flow.csv',function(stop_data){
