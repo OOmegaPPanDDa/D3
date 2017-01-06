@@ -57,7 +57,7 @@ function to_map_train(){
 
 
 
-    for(i=stop_data.length-1;i>=0;i--){
+    for(i=0;i<stop_data.length;i++){
 
       stop_data[i]=[projection([stop_data[i].long,stop_data[i].lat]),stop_data[i].yearFlow];
 
@@ -87,25 +87,25 @@ function to_map_train(){
       .data(stop_data).enter()
       .append("circle")
       .each(function (d, i) {
-            if (i <= 140) {
+            if (i <= 40) {
               // put all your operations on the second element, e.g.
               d3.select(this)
               .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
               .attr("cy", function (d) { return d[0][1]; })
-              .attr("fill", "black")
+              .attr("fill", "red")
               .transition()
-              .duration(1000)
+              .duration(30000)
               .attr('r', function (d) { return radius(d[1])} )
               .attr('fill-opacity', 0.8);    
             }
-            else if (i <= 180) {
+            else if (i = 180) {
               // put all your operations on the second element, e.g.
               d3.select(this)
               .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
               .attr("cy", function (d) { return d[0][1]; })
               .attr("fill", "orange")
               .transition()
-              .duration(2000)
+              .duration(20000)
               .attr('r', function (d) { return radius(d[1])} )
               .attr('fill-opacity', 0.8);    
             }
@@ -114,9 +114,9 @@ function to_map_train(){
               d3.select(this)
               .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
               .attr("cy", function (d) { return d[0][1]; })
-              .attr("fill", "red")
+              .attr("fill", "black")
               .transition()
-              .duration(3000)
+              .duration(10000)
               .attr('r', function (d) { return radius(d[1])} )
               .attr('fill-opacity', 0.8);    
 
@@ -171,7 +171,7 @@ function to_map_train(){
     .attr("x", width / 2 )
     .attr("y", margin.top)
     .style("text-anchor", "middle")
-    .text("台灣火車站人數流量圖");
+    .text("Taiwan Train Stop YearFlow Map");
 
 
   });
