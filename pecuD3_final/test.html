@@ -7,14 +7,14 @@
   <script src="https://d3js.org/topojson.v2.min.js"></script>
 </head>
 <body>
-<svg width="800px" height="600px" viewBox="0 0 800 600"></svg>
+<svg width="1000px" height="800px" viewBox="0 0 800 600"></svg>
 
 
 <script>
 
 
   var projection = d3.geo.mercator()
-            .scale(7000) // 地圖放大比率
+            .scale(8000) // 地圖放大比率
             .center([120.9, 24.1]); // 指定地圖的中心點(longitude(經), latitude(緯))
            // .translate([width / 2, height / 2]); // 從中心點移動指定的px(x, y)
 
@@ -24,10 +24,10 @@
 	d3.json("county.json", function(topodata) {
 		console.log(topodata);
 
-      var features = topojson.feature(topodata, topodata.objects["county"]).features;
-      // 這裡要注意的是 topodata.objects["county"] 中的 "county" 為原本 shp 的檔名
+    var features = topojson.feature(topodata, topodata.objects["county"]).features;
 
-      d3.select("svg").selectAll("path").data(features).enter().append("path").attr("d",path);
+    d3.select("svg").selectAll("path")
+    .data(features).enter().append("path").attr("d",path);
 	});
 
 
