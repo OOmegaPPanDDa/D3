@@ -46,6 +46,11 @@ function to_map_train(){
 
 
 
+    var circle_colors = d3.scale.category20()
+    .domain([0, 5e7]);
+
+
+
     // Draw Train Stop 
 
     // var s_stop_data=[];
@@ -92,7 +97,7 @@ function to_map_train(){
               d3.select(this)
               .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
               .attr("cy", function (d) { return d[0][1]; })
-              .attr("fill", "red")
+              .attr("fill", function (d) { return circle_colors(d[1])} )
               .transition()
               .duration(60000)
               .attr('r', function (d) { return radius(d[1])} )
@@ -103,7 +108,7 @@ function to_map_train(){
               d3.select(this)
               .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
               .attr("cy", function (d) { return d[0][1]; })
-              .attr("fill", "orange")
+              .attr("fill", function (d) { return circle_colors(d[1])} )
               .transition()
               .duration(40000)
               .attr('r', function (d) { return radius(d[1])} )
@@ -114,7 +119,7 @@ function to_map_train(){
               d3.select(this)
               .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
               .attr("cy", function (d) { return d[0][1]; })
-              .attr("fill", "black")
+              .attr("fill", function (d) { return circle_colors(d[1])} )
               .transition()
               .duration(20000)
               .attr('r', function (d) { return radius(d[1])} )
@@ -178,7 +183,7 @@ function to_map_train(){
         gravity: 'w', 
         html: true, 
         title: function() {
-          var d = this.__data__, c = colors(d.i);
+          var d = this.__data__, c = circle_colors(d[1]);
           return 'Hi there! My color is <span style="color:' + c + '">' + c + '</span>'+
           '\n Here is '+ d[2] + '.'; 
         }
