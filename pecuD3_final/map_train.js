@@ -109,7 +109,7 @@ function to_map_train(){
       .attr("cy", function (d) { return d[0][1]; })
       .attr("fill", "red")
       .transition()
-      .duration(300000)
+      .duration(30000)
         .attr('r', function (d) { return radius(d[1])} )
         .attr('fill-opacity', 0.8);
 
