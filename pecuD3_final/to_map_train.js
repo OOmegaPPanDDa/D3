@@ -71,13 +71,13 @@ function to_map_train(class_name){
       .attr("cy", function (d) { return d[0][1]; })
       .attr("fill", "black")
       .transition()
-      .duration(function (d) { return d[0][1]*2500; })
+      .duration(function (d) { return d[0][1]*25000; })
         .attr('r', function (d) { return radius(d[1]); })
         .attr('fill-opacity', 0.8);
 
 
 
-        
+
     svg.append("text")
     .attr("x", width / 2 )
     .attr("y", margin.top)
