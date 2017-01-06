@@ -98,7 +98,7 @@ function to_map_train(){
               .attr('r', function (d) { return radius(d[1])} )
               .attr('fill-opacity', 0.8);    
             }
-            else if (i = 180) {
+            else if (i === 180) {
               // put all your operations on the second element, e.g.
               d3.select(this)
               .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
