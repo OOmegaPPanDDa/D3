@@ -36,12 +36,8 @@
       console.log(features[i].properties.color_assign);
     }
 
-    var stop_data
-    d3.csv("stop.csv", function(data) {
-      stop_data = data;
-    });
 
-    var color = d3.scale.linear().domain([0,100]).range(['#00FFFF', '#00A600']);
+    var color = d3.scale.category20();
     var svg = d3.select("svg").selectAll("path").data(features).attr('d', path)
     .style('fill',
       function(d){
@@ -49,9 +45,16 @@
       });
 
 
-    svg.selectAll("circle")
-    .data(stop_data).enter()
-    .append("circle")
+    var stop_data;
+    d3.csv('stop.csv',function(data){
+      stop_data = data;
+    };
+
+    console.log(stop_data);
+
+
+
+
 
     
 //});
