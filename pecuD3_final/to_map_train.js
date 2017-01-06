@@ -1,3 +1,5 @@
+import * as lib from 'tipsy';
+
 function to_map_train(){  
 
   var w = 1600;
