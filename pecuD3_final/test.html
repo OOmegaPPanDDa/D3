@@ -11,11 +11,13 @@
 
 </head>
 <body>
-<svg width="1000px" height="800px" viewBox="0 0 800 600"></svg>
+
+<!-- <svg width="1000px" height="800px" viewBox="0 0 800 600"></svg> -->
 
 
 <script>
-
+    var width = 950,
+    height = 550;
 
     d3.csv('stop.csv',function(stop_data){
 
@@ -26,6 +28,10 @@
 
   // 利用 d3.geo.path 將資料轉換成 SVG Path
   var path = d3.geo.path().projection(projection);
+
+  var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height);
 
   //d3.json("county.json", function(topodata) {
     console.log(topodata);
@@ -43,7 +49,7 @@
 
 
     var color = d3.scale.category20();
-    var svg = d3.select("svg").selectAll("path").data(features).attr('d', path)
+    svg.selectAll("path").data(features).attr('d', path)
     .style('fill',
       function(d){
         return color(d.properties.color_assign)
@@ -60,7 +66,7 @@
       };
       console.log(new_stop_data);
 
-      svg.selectAll("circle")
+      svg.d3.select("svg").selectAll("circle")
     .data(new_stop_data).enter()
     .append("circle")
     .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
