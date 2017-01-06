@@ -26,10 +26,12 @@
 
       var features = topojson.feature(topodata, topodata.objects["county"]).features;
       // 這裡要注意的是 topodata.objects["county"] 中的 "county" 為原本 shp 的檔名
+
+      d3.select("svg").selectAll("path").data(features).enter().append("path").attr("d",path);
 	});
 
 
-  	d3.select("svg").selectAll("path").data(features).enter().append("path").attr("d",path);
+  	
 
 </script>
 
