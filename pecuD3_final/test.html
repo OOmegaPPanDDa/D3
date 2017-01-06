@@ -48,21 +48,15 @@
       });
 
 
+    var new_stop_data;
+    d3.csv('stop.csv',function(stop_data){
+      console.log(stop_data);
+      for(i=0;i<stop_data.length;i++){
+        new_stop_data.append([stop_data[i].long,stop_data[i].lat]);
+      };
+      console.log(new_stop_data);
 
-    // es6 
-    // import { DataFrame, Row } from 'dataframe-js';
-    // es5 
-    // var DataFrame = require('dataframe-js').DataFrame;
-    // Browser 
-    var DataFrame = dfjs.DataFrame;
-
-
-    DataFrame.fromCSV('stop.csv').then(df => df);
-    df.show()
-    
-
-
-
+    });
 
 
     
