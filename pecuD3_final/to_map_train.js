@@ -12,7 +12,7 @@ function to_map_train(){
 
 
     var projection = d3.geo.mercator()
-      .scale(8000) // 地圖放大比率
+      .scale(9000) // 地圖放大比率
       .center([120.9, 24.1]) // 指定地圖的中心點(longitude(經), latitude(緯))
       .translate([width / 2, height / 2]); // 從中心點移動指定的px(x, y)
 
@@ -56,7 +56,7 @@ function to_map_train(){
       new_stop_data[i]=[projection([stop_data[i].long,stop_data[i].lat]),stop_data[i].yearFlow];
     };
     
-    // console.log(new_stop_data);
+    console.log(new_stop_data);
 
     var radius = d3.scale.sqrt()
       .domain([0, 5e7])
