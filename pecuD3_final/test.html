@@ -48,7 +48,7 @@
     };
 
 
-    var color = d3.scale.category20();
+    var color = d3.scale.category20c();
     svg.selectAll("path").data(features).attr('d', path)
     .style('fill',
       function(d){
