@@ -72,7 +72,7 @@ function to_map_train(class_name){
       .attr("fill", "black")
       .transition()
       .duration(function (d) { return radius(d[1]); })
-        .attr('r', function (d) { return radius(d[1]); })
+        .attr('r', function (d) { return radius(d[1])*100000; })
         .attr('fill-opacity', 0.8);
 
 
