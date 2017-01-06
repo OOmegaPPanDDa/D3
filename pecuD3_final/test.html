@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://d3js.org/d3-array.v1.min.js"></script>
+	<script src="https://d3js.org/d3-geo.v1.min.js"></script>
   <script src="https://d3js.org/topojson.v1.min.js" type="text/javascript" ></script>
   <title>Test</title>
 </head>
@@ -23,7 +25,7 @@
 		d3.geo.mercator().center([121,24]).scale(6000) // 座標變換函式
 			);
 
-	  
+
   	d3.select("svg").selectAll("path").data(features)
   		.enter().append("path").attr("d",path);
     });
