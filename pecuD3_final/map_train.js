@@ -9,11 +9,11 @@ function to_map_train(){
 
 
     var projection = d3.geo.mercator()
-      .scale(8000) // µØˆD·Å´ó±ÈÂÊ
-      .center([120.9, 24.1]) // Ö¸¶¨µØˆDµÄÖĞĞÄüc(longitude(½›), latitude(¾•))
-      .translate([w / 2, h / 2]); // ÄÖĞĞÄücÒÆ„ÓÖ¸¶¨µÄpx(x, y)
+      .scale(8000) // åœ°åœ–æ”¾å¤§æ¯”ç‡
+      .center([120.9, 24.1]) // æŒ‡å®šåœ°åœ–çš„ä¸­å¿ƒé»(longitude(ç¶“), latitude(ç·¯))
+      .translate([w / 2, (h - 20) / 2]); // å¾ä¸­å¿ƒé»ç§»å‹•æŒ‡å®šçš„px(x, y)
 
-    // ÀûÓÃ d3.geo.path Œ¢ÙYÁÏŞD“Q³É SVG Path
+    // åˆ©ç”¨ d3.geo.path å°‡è³‡æ–™è½‰æ›æˆ SVG Path
     var path = d3.geo.path().projection(projection);
 
     var svg = d3.select(".b02705027_map_train").append("svg")
