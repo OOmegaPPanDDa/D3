@@ -178,6 +178,7 @@ function to_map_train(){
           return 'Hi there! Welcome to <span style="color:' + c + '">'+ d[2]+'</span>' +
           '<br>' + 'I have ' + d[1] + ' visits per year!'; 
         }
+        trigger: 'hover',
       });
 
 
