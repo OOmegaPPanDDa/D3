@@ -1,0 +1,6 @@
+library(readr)
+train_flow <- read_csv('train_flow.csv')
+train_flow$year <- as.numeric(train_flow$year)
+train_flow$month <- as.numeric(train_flow$month)
+train_flow$day <- as.numeric(train_flow$day)
+train_flow$LatLong <- paste(train_flow$lat, train_flow$long, sep=":")
