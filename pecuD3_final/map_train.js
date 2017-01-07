@@ -121,7 +121,7 @@ function to_map_train(){
               .attr("cy", function (d) { return d[0][1]; })
               .attr("fill", function (d) { return circle_colors(d[1])} )
               .transition()
-              .duration(12000)
+              .duration(1200)
               .attr('r', function (d) { return radius(d[1])} )
               .attr('fill-opacity', 0.8);    
 
@@ -184,7 +184,8 @@ function to_map_train(){
         html: true, 
         title: function() {
           var d = this.__data__, c = circle_colors(d[1]);
-          return 'Hi there!'; 
+          return 'Hi there! Welcome to <span style="color:' + c + '">'+ d[2]+'</span>' +
+          '<br>' + 'I have ' + d[1] + ' visits per year!'; 
         }
       });
 
