@@ -1,6 +1,6 @@
 function to_map_train(){  
 
-  var w = 720;
+  var w = 700;
   var h = 560;
   var margin = {top:20};
 
@@ -154,12 +154,17 @@ function to_map_train(){
     .attr("x", w / 2 )
     .attr("y", margin.top)
     .style("text-anchor", "middle")
+    .style('fill', '#0072E3')
+    .style("font-size","120%")
+    .style("font-family","impact")
     .text("Taiwan Train Stop YearFlow Map!");
 
     svg.append("text")
     .attr("x", w / 2 )
     .attr("y", margin.top+20)
     .style("text-anchor", "middle")
+    .style('fill', '#BE77FF')
+    .style("font-size","100%")
     .text("The circles will gradually pop up with time!!");
 
 
@@ -167,7 +172,9 @@ function to_map_train(){
     .attr("x", w / 2 )
     .attr("y", margin.top+40)
     .style("text-anchor", "middle")
-    .text("(Move on each circle to know more!!!)");
+    .style('fill', '#BE77FF')
+    .style("font-size","80%")
+    .text("Move on each circle to know more!!!");
 
 
     $('svg circle').tipsy({ 
