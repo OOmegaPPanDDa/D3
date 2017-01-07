@@ -78,6 +78,7 @@ shinyServer(function(input, output) {
     year_data <- unique(year_data %>% select(month,month_count))
     year_data$month <- as.factor(year_data$month)
     
+    
     options(scipen=999)
     month_hist <- ggplot(year_data, aes(x=month,y=month_count-input$thresh_month,fill=month_count)) +
       geom_histogram(stat='identity',alpha = .8) +
