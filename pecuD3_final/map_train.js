@@ -101,7 +101,7 @@ function to_map_train(){
 
         // put all your operations on the second element, e.g.
         d3.select(this)
-        .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
+        .attr("cx", function (d) { return d[0][0]; })
         .attr("cy", function (d) { return d[0][1]; })
         .attr("fill", function (d) { return circle_colors(d[1])} )
         .transition()
