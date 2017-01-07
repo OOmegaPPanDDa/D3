@@ -1,6 +1,6 @@
 function to_map_train(){  
 
-  var w = 1000;
+  var w = 1800;
   var h = 600;
   var margin = {top:20};
 
@@ -9,7 +9,7 @@ function to_map_train(){
 
 
     var projection = d3.geo.mercator()
-      .scale(9000) // 地圖放大比率
+      .scale(8000) // 地圖放大比率
       .center([120.9, 24.1]) // 指定地圖的中心點(longitude(經), latitude(緯))
       .translate([w / 2, h / 2]); // 從中心點移動指定的px(x, y)
 
