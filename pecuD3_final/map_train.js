@@ -1,7 +1,7 @@
 function to_map_train(){  
 
   var w = 840;
-  var h = 560;
+  var h = 600;
   var margin = {top:20};
 
 
@@ -9,7 +9,7 @@ function to_map_train(){
 
 
     var projection = d3.geo.mercator()
-      .scale(8000) // 地圖放大比率
+      .scale(7500) // 地圖放大比率
       .center([120.9, 24.1]) // 指定地圖的中心點(longitude(經), latitude(緯))
       .translate([w / 2, (h - 20) / 2]); // 從中心點移動指定的px(x, y)
 
@@ -99,7 +99,7 @@ function to_map_train(){
               .attr("cy", function (d) { return d[0][1]; })
               .attr("fill", function (d) { return circle_colors(d[1])} )
               .transition()
-              .duration(60000)
+              .duration(36000)
               .attr('r', function (d) { return radius(d[1])} )
               .attr('fill-opacity', 0.8);    
             }
@@ -110,7 +110,7 @@ function to_map_train(){
               .attr("cy", function (d) { return d[0][1]; })
               .attr("fill", function (d) { return circle_colors(d[1])} )
               .transition()
-              .duration(40000)
+              .duration(24000)
               .attr('r', function (d) { return radius(d[1])} )
               .attr('fill-opacity', 0.8);    
             }
@@ -121,7 +121,7 @@ function to_map_train(){
               .attr("cy", function (d) { return d[0][1]; })
               .attr("fill", function (d) { return circle_colors(d[1])} )
               .transition()
-              .duration(20000)
+              .duration(12000)
               .attr('r', function (d) { return radius(d[1])} )
               .attr('fill-opacity', 0.8);    
 
