@@ -88,86 +88,64 @@ function to_map_train(){
 
 
 
+    var show_time = d3.scale.linear()
+      .domain([0, 5e7])
+      .range([0, 50000]);
+
+
+
     svg.selectAll("circle")
       .data(stop_data).enter()
       .append("circle")
       .each(function (d, i) {
-            if (i <= 40) {
-              // put all your operations on the second element, e.g.
-              d3.select(this)
-              .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
-              .attr("cy", function (d) { return d[0][1]; })
-              .attr("fill", function (d) { return circle_colors(d[1])} )
-              .transition()
-              .duration(36000)
-              .attr('r', function (d) { return radius(d[1])} )
-              .attr('fill-opacity', 0.8);    
-            }
-            else if (i === 180) {
-              // put all your operations on the second element, e.g.
-              d3.select(this)
-              .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
-              .attr("cy", function (d) { return d[0][1]; })
-              .attr("fill", function (d) { return circle_colors(d[1])} )
-              .transition()
-              .duration(24000)
-              .attr('r', function (d) { return radius(d[1])} )
-              .attr('fill-opacity', 0.8);    
-            }
-            else{
-              // put all your operations on the second element, e.g.
-              d3.select(this)
-              .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
-              .attr("cy", function (d) { return d[0][1]; })
-              .attr("fill", function (d) { return circle_colors(d[1])} )
-              .transition()
-              .duration(1200)
-              .attr('r', function (d) { return radius(d[1])} )
-              .attr('fill-opacity', 0.8);    
 
-            }
+        // put all your operations on the second element, e.g.
+        d3.select(this)
+        .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
+        .attr("cy", function (d) { return d[0][1]; })
+        .attr("fill", function (d) { return circle_colors(d[1])} )
+        .transition()
+        .duration(function (d) { return show_time(d[1])})
+        .attr('r', function (d) { return radius(d[1])} )
+        .attr('fill-opacity', 0.8);    
+
+            // if (i <= 40) {
+            //   // put all your operations on the second element, e.g.
+            //   d3.select(this)
+            //   .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
+            //   .attr("cy", function (d) { return d[0][1]; })
+            //   .attr("fill", function (d) { return circle_colors(d[1])} )
+            //   .transition()
+            //   .duration(40000)
+            //   .attr('r', function (d) { return radius(d[1])} )
+            //   .attr('fill-opacity', 0.8);    
+            // }
+            // else if (i === 180) {
+            //   // put all your operations on the second element, e.g.
+            //   d3.select(this)
+            //   .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
+            //   .attr("cy", function (d) { return d[0][1]; })
+            //   .attr("fill", function (d) { return circle_colors(d[1])} )
+            //   .transition()
+            //   .duration(20000)
+            //   .attr('r', function (d) { return radius(d[1])} )
+            //   .attr('fill-opacity', 0.8);    
+            // }
+            // else{
+            //   // put all your operations on the second element, e.g.
+            //   d3.select(this)
+            //   .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
+            //   .attr("cy", function (d) { return d[0][1]; })
+            //   .attr("fill", function (d) { return circle_colors(d[1])} )
+            //   .transition()
+            //   .duration(10000)
+            //   .attr('r', function (d) { return radius(d[1])} )
+            //   .attr('fill-opacity', 0.8);    
+
+            // }
+
+
           });
-      
-
-
-
-
-    // svg.selectAll("circle")
-    //   .data(s_stop_data).enter()
-    //   .append("circle")
-    //   .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
-    //   .attr("cy", function (d) { return d[0][1]; })
-    //   .attr("fill", "black")
-    //   .transition()
-    //   .duration(1000)
-    //     .attr('r', function (d) { return radius(d[1])} )
-    //     .attr('fill-opacity', 0.8);  
-
-
-
-    // svg.selectAll("circle")
-    //   .data(m_stop_data).enter()
-    //   .append("circle")
-    //   .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
-    //   .attr("cy", function (d) { return d[0][1]; })
-    //   .attr("fill", "yellow")
-    //   .transition()
-    //   .duration(2000)
-    //     .attr('r', function (d) { return radius(d[1])} )
-    //     .attr('fill-opacity', 0.8);
-
-
-
-    // svg.selectAll("circle")
-    //   .data(l_stop_data).enter()
-    //   .append("circle")
-    //   .attr("cx", function (d) { console.log(d[0][0]); return d[0][0]; })
-    //   .attr("cy", function (d) { return d[0][1]; })
-    //   .attr("fill", "red")
-    //   .transition()
-    //   .duration(3000)
-    //     .attr('r', function (d) { return radius(d[1])} )
-    //     .attr('fill-opacity', 0.8);
 
 
 
@@ -176,7 +154,20 @@ function to_map_train(){
     .attr("x", w / 2 )
     .attr("y", margin.top)
     .style("text-anchor", "middle")
-    .text("Taiwan Train Stop YearFlow Map");
+    .text("Taiwan Train Stop YearFlow Map!");
+
+    svg.append("text")
+    .attr("x", w / 2 )
+    .attr("y", margin.top+20)
+    .style("text-anchor", "middle")
+    .text("The circles will gradually pop up with time!!");
+
+
+    svg.append("text")
+    .attr("x", w / 2 )
+    .attr("y", margin.top+40)
+    .style("text-anchor", "middle")
+    .text("(Move and Click on each circle to know more!!!)");
 
 
     $('svg circle').tipsy({ 
