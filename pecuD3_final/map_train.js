@@ -1,6 +1,6 @@
 function to_map_train(){  
 
-  var w = 700;
+  var w = 640;
   var h = 560;
   var margin = {top:20};
 
@@ -157,11 +157,12 @@ function to_map_train(){
     .style('fill', '#0072E3')
     .style("font-size","120%")
     .style("font-family","impact")
+    .style("text-decoration","underline")
     .text("Taiwan Train Stop YearFlow Map!");
 
     svg.append("text")
     .attr("x", w / 2 )
-    .attr("y", margin.top+20)
+    .attr("y", margin.top+40)
     .style("text-anchor", "middle")
     .style('fill', '#BE77FF')
     .style("font-size","100%")
@@ -170,7 +171,7 @@ function to_map_train(){
 
     svg.append("text")
     .attr("x", w / 2 )
-    .attr("y", margin.top+40)
+    .attr("y", margin.top+60)
     .style("text-anchor", "middle")
     .style('fill', '#BE77FF')
     .style("font-size","80%")
