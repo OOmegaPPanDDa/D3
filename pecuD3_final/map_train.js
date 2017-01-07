@@ -177,7 +177,7 @@ function to_map_train(){
           var d = this.__data__, c = circle_colors(d[1]);
           return 'Hi there! Welcome to <span style="color:' + c + '">'+ d[2]+'</span>' +
           '<br>' + 'I have ' + d[1] + ' visits per year!'; 
-        }
+        },
         trigger: 'hover',
       });
 
