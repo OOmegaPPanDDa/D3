@@ -3,6 +3,5 @@
 車站年流量資訊彩圖 (D3/tipsy/topojson)
 車站流量動態分析圖表 (R/Shiny/ggplot/googleVis)
 
-
 資料來源：政府資料開放平臺 -- 每日各站點進出站人數
 http://data.gov.tw/node/8792
